@@ -4,12 +4,12 @@ import random
 
 def on_message_received(ch, method, properties, body):
     processing_time = random.randint(1, 6)
-    print(f'received: "{body}", will take {processing_time} to process')
+    print(f"received: {body}, will take {processing_time} to process")
     time.sleep(processing_time)
     ch.basic_ack(delivery_tag=method.delivery_tag)
     print(f'finished processing and acknowledged message')
 
-connection_parameters = pika.ConnectionParameters('13.214.190.7')
+connection_parameters = pika.ConnectionParameters('13.214.169.24')
 
 connection = pika.BlockingConnection(connection_parameters)
 
